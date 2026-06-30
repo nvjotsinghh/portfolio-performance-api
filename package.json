@@ -4,11 +4,13 @@
   "description": "Portfolio Performance API built using Express and TypeScript.",
   "main": "dist/server.js",
   "scripts": {
-    "build": "tsc",
-    "start": "node dist/server.js",
-    "dev": "nodemon src/server.ts",
-    "test": "jest --runInBand"
-  },
+  "build": "tsc",
+  "start": "node dist/server.js",
+  "dev": "nodemon src/server.ts",
+  "test": "jest",
+  "test:watch": "jest --watch",
+  "coverage": "jest --coverage"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
