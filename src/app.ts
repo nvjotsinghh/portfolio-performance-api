@@ -5,12 +5,15 @@ const app: Express = express();
 
 app.use(express.json());
 
-app.get("/", (_req, res) => {
-  res.json({
-    message: "Portfolio Performance API",
-  });
-});
-
 app.use("/api/v1", apiV1Routes);
+
+app.get("/", (_req, res) => {
+
+    res.status(200).json({
+        success: true,
+        message: "Portfolio Performance API"
+    });
+
+});
 
 export default app;

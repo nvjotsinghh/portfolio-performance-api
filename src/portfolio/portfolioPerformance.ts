@@ -1,3 +1,5 @@
+import { PERFORMANCE_MESSAGES } from "./constants";
+
 /**
  * Represents the result of a portfolio performance calculation.
  */
@@ -10,32 +12,32 @@ export interface PortfolioPerformance {
 }
 
 /**
- * Calculates portfolio performance.
+ * Calculates the performance of an investment portfolio.
  *
- * @param initialInvestment Initial investment amount.
- * @param currentValue Current portfolio value.
+ * @param initialInvestment - The initial amount invested.
+ * @param currentValue - The current value of the investment.
  * @returns Portfolio performance details.
  */
 export function calculatePortfolioPerformance(
   initialInvestment: number,
   currentValue: number
 ): PortfolioPerformance {
-
   const profitOrLoss = currentValue - initialInvestment;
 
-  const percentageChange =
-    Number(((profitOrLoss / initialInvestment) * 100).toFixed(2));
+  const percentageChange = Number(
+    ((profitOrLoss / initialInvestment) * 100).toFixed(2)
+  );
 
   const performanceSummary =
     percentageChange >= 30
-      ? "Excellent performance!"
+      ? PERFORMANCE_MESSAGES.EXCELLENT
       : percentageChange >= 10
-      ? "Solid gain."
+      ? PERFORMANCE_MESSAGES.SOLID_GAIN
       : percentageChange >= 0
-      ? "Modest growth."
+      ? PERFORMANCE_MESSAGES.MODEST_GROWTH
       : percentageChange >= -10
-      ? "Minor loss."
-      : "Significant loss.";
+      ? PERFORMANCE_MESSAGES.MINOR_LOSS
+      : PERFORMANCE_MESSAGES.SIGNIFICANT_LOSS;
 
   return {
     initialInvestment,
