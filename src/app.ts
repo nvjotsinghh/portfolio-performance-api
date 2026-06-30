@@ -1,15 +1,16 @@
 import express, { Express } from "express";
+import apiV1Routes from "./api/v1";
 
 const app: Express = express();
 
-// Middleware
 app.use(express.json());
 
-// Root route
 app.get("/", (_req, res) => {
-  res.status(200).json({
-    message: "Portfolio Performance API is running."
+  res.json({
+    message: "Portfolio Performance API",
   });
 });
+
+app.use("/api/v1", apiV1Routes);
 
 export default app;
